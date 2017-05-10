@@ -5,9 +5,10 @@ class SessionHelper:
     def login(self, user, password):
         wd = self.app.wd
         self.app.open_home_page()
-        self.app.type_text("user", user)
-        self.app.type_text("pass", password)
-        wd.find_element_by_css_selector("input[value='Login']").click()
+        self.app.type_text("username", user)
+        wd.find_element_by_css_selector("input[type='submit']").click()
+        self.app.type_text("password", password)
+        wd.find_element_by_css_selector("input[type='submit']").click()
 
     def ensure_login(self, user, password):
         wd = self.app.wd
@@ -37,5 +38,6 @@ class SessionHelper:
 
     def get_logged_user(self):
         wd = self.app.wd
-        return wd.find_element_by_xpath("//form[@name='logout']/b").text[1:-1]
+        a = wd.find_element_by_css_selector("ul.breadcrumb a[href$='account_page.php']").text
+        return wd.find_element_by_css_selector("ul.breadcrumb a[href$='account_page.php']").text
 
