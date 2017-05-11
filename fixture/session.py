@@ -38,6 +38,9 @@ class SessionHelper:
 
     def get_logged_user(self):
         wd = self.app.wd
-        a = wd.find_element_by_css_selector("ul.breadcrumb a[href$='account_page.php']").text
         return wd.find_element_by_css_selector("ul.breadcrumb a[href$='account_page.php']").text
 
+    def go_to_control_page(self):
+        wd = self.app.wd
+        control_link = wd.find_element_by_css_selector("a[href$='manage_overview_page.php']")
+        control_link.click()

@@ -15,5 +15,12 @@ def random_digits(max_len):
     symbols = string.digits
     return "".join([random.choice(symbols) for i in range(random.randrange(max_len))])
 
+def random_bool():
+    value = random_digits(2)
+    if value == "1":
+        return True
+    else:
+        return False
+
 def clear(s):
     return re.sub("[() -]", "", s)
