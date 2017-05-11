@@ -1,5 +1,6 @@
 from model.project import Project
 
+
 def test_add_project(app):
     project = Project().random()
     new_project = project

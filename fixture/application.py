@@ -8,6 +8,7 @@ class Application:
     def __init__(self, browser, base_url):
         if browser == "firefox":
             self.wd = webdriver.Firefox()
+
         elif browser == "chrome":
             self.wd = webdriver.Chrome()
         elif browser == "Ie":
@@ -34,12 +35,8 @@ class Application:
 
     def open_home_page(self):
         wd = self.wd
+        wd.maximize_window()
         wd.get(self.base_url)
-
-    # def return_to_home_page(self):
-    #     wd = self.wd
-    #     if not wd.current_url.endswith("addressbook/"):
-    #         wd.find_element_by_link_text("home").click()
 
     def type_text(self, attribute,  text):
         wd = self.wd
